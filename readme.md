@@ -16,11 +16,11 @@ The equation above represents the share of minutes (*SMP*) player *p* on team *t
 
 $$W_t = \dfrac{\sum_t \big(SMP_{pt} \big) \times 5}{40}$$
 
-However, because players will inevitably miss some time due to injury, the sum of the share of minutes played will not very likely overstate the overall number of minutes which are possible to play within a game.Thus, I create a weighting variable (*W*) for each team *t* to help better estimate actual playing time. To do so, I aggregate each team's share of minutes played (*SMP*) and multiply by the maximum number of players which can be on the court at a time (5). I then divide this by the total minutes that can be played per player (40). The closer this number is to 1, the less adjustments to playing time the team has made throughout the season.
+However, because players will inevitably miss some time due to injury, the sum of the share of minutes played will very likely overstate the overall number of minutes which are possible to play within a game.Thus, I create a weighting variable (*W*) for each team *t* to help better estimate actual playing time. To do so, I aggregate each team's share of minutes played (*SMP*) and multiply by the maximum number of players which can be on the court at a time (5). I then divide this by the total minutes that can be played per player (40). The closer this number is to 1, the less adjustments to playing time the team has made throughout the season.
 
 $$EMP_{pt} = \dfrac{SMP_{pt}}{W_t}$$
 
-Finally, estimated playing time (*EMP*) is calculated by dividing the share of minutes (*SMP*) for each player *p* on team *t* by a team playing time weight (*$W*).
+Finally, estimated playing time (*EMP*) is calculated by dividing the share of minutes (*SMP*) for each player *p* on team *t* by a team playing time weight (*W*).
 
 ## Productivity
 
