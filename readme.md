@@ -30,7 +30,7 @@ $$V_{pt} = S_{pt} \times EMP_{pt}$$
 
 I calculate the playing-time adjusted productivity value (*V*) for each player *p* on team *t* by multiplying productivity statistic *S* with their estimated minutes played (*EMP*).
 
-$$Z_{pt} = \dfrac{V_{pt} - mean(V)_{pt}}{sd(V_{pt})}$$
+$$Z_{pt} = \dfrac{V_{pt} - m(V_{pt})}{sd(V_{pt})}$$
 
 I standardize (*Z*) this variable to account for the fact that each productivity statistic *S* has a different mean value. Thus, each player is assigned a score which represents the degree to which their productivity differs from the mean in standard deviations.
 
