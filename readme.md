@@ -30,17 +30,17 @@ $$V_{pt} = S_{pt} \times EMP_{pt}$$
 
 I calculate the playing-time adjusted productivity value (*V*) for each player *p* on team *t* by multiplying productivity statistic *S* with their estimated minutes played (*EMP*).
 
-$$Z_{pt} = \dfrac{V_{pt} - \bar{V}_{pt}}{sd(V_{pt})}$$
+$$Z_{pt} = \dfrac{V_{pt} - mean(V)_{pt}}{sd(V_{pt})}$$
 
 I standardize (*Z*) this variable to account for the fact that each productivity statistic *S* has a different mean value. Thus, each player is assigned a score which represents the degree to which their productivity differs from the mean in standard deviations.
 
-$$\bar{Z}_{pt} = \dfrac{\sum_{pt} Z_{spt}}{\ell(S)}$$
+$$\mu_{pt} = \dfrac{\sum_{pt} Z_{spt}}{\ell(S)}$$
 
 I take the sum of each of the different standardized productivity statistics (*s*) for each player *p* on team *t*. Dividing by the unique number of productivity statistics ($\ell(S)$) provides an average productivity score for each player. For example, Caitlin Clark had the highest average score (4.5) for either men or women in the 2023-2024 season.
 
-$$G_t = \sum_{t} \bar{Z}_{pt}$$
+$$G_t = \sum_{t} \mu_{pt}$$
 
-Teams receive a value of how good they are (*G*) by taking the sum of the playing-time adjusted, standardized productivity measure ($\bar{Z}$) for each player *p* on team *t*.
+Teams receive a value of how good they are (*G*) by taking the sum of the playing-time adjusted, standardized productivity measure ($\mu$) for each player *p* on team *t*.
 
 ## Strength of Schedule
 
