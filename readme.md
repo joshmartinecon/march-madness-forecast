@@ -36,7 +36,7 @@ I standardize (*Z*) this variable to account for the fact that each productivity
 
 $$\mu_{pt} = \dfrac{\sum_{pt} Z_{spt}}{\ell(S)}$$
 
-I take the sum of each of the different standardized productivity statistics (*s*) for each player *p* on team *t*. Dividing by the unique number of productivity statistics ($\ell(S)$) provides an average productivity score for each player. For example, Caitlin Clark had the highest average score (4.5) for either men or women in the 2023-2024 season.
+I take the sum of each of the different standardized productivity statistics (*s*) for each player *p* on team *t*. Dividing by the unique number of productivity statistics (*l(S)*) provides an average productivity score for each player. For example, Caitlin Clark had the highest average score (4.5) for either men or women in the 2023-2024 season.
 
 $$G_t = \sum_{t} \mu_{pt}$$
 
@@ -63,8 +63,8 @@ I will periodically update the quality of my predictions. As of April 3, 2024 my
 |  Round of 32 | 12 of 16 (75%) |   | 13 of 16 (81%) |
 |   Sweet 16   |  1 of 8 (13%)  |   |  4 of 8 (50%)  |
 |    Elite 8   |  1 of 4 (25%)  |   |  3 of 4 (75%)  |
-|  Final Four  |                |   |                |
-| Championship |                |   |                |
-|   Champion   |                |   |                |
+|  Final Four  |  1 of 2 (50%)  |   |  1 of 2 (50%)  |
+| Championship |  0 of 1  (0%)  |   |  1 of 1 (100%) |
+|  Nat. Pctl.  |    58 pctl.    |   |    83 pctl.    |
 
-Historically the women's bracket has always been easier to predict, but this is by far the worst my men's bracket has preformed. Looks like I will have to revisit the chalk board this time next year.
+Historically the women's bracket has always been easier to predict, but this is by far the worst my men's bracket has preformed with a complete collapse in the Sweet 16. Looks like I will have to revisit the chalk board this time next year.
