@@ -62,13 +62,11 @@ I will periodically update the accuracy of picks as the tournament progresses.
 
 ## 2025 Men's Bracket
 
-<embed src="brackets/men's%20bracket%202025.pdf" width="500px" height="400px" type="application/pdf" />
-
+[View the Men's Bracket 2025 PDF](brackets/men's%20bracket%202025.pdf)
 
 ## 2025 Women's Bracket
 
-<embed src="brackets/women's%20bracket%202025.pdf" width="500px" height="400px" type="application/pdf" />
-
+[View the Women's Bracket 2025 PDF](brackets/men's%20bracket%202025.pdf)
 
 ## 2024 Overview
 
