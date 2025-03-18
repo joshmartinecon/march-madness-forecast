@@ -382,7 +382,7 @@ total amount of minutes the player has played so far that season.</p>
 <p>However, because players will inevitably miss some time due to
 injury, the sum of the share of minutes played will very likely
 overstate the overall number of minutes which are possible to play
-within a game.Thus, I create a weighting variable (<em>W</em>) for each
+within a game. Thus, I create a weighting variable (<em>W</em>) for each
 team <em>t</em> to help better estimate actual playing time. To do so, I
 aggregate each team’s share of minutes played (<em>SMP</em>) and
 multiply by the maximum number of players which can be on the court at a
@@ -417,9 +417,10 @@ their productivity differs from the mean in standard deviations.</p>
 Z_{spt}}{\ell(S)}\]</span></p>
 <p>I take the sum of each of the different standardized productivity
 statistics (<em>s</em>) for each player <em>p</em> on team <em>t</em>.
-Dividing by the unique number of productivity statistics (<span class="math inline">\(\ell(S)\)</span>) provides an average productivity
-score for each player. For example, Caitlin Clark had the highest
-average score (4.5) for either men or women in the 2023-2024 season.</p>
+Dividing by the unique number of productivity statistics (<em>l(S)</em>)
+provides an average productivity score for each player. For example,
+Caitlin Clark had the highest average score (4.5) for either men or
+women in the 2023-2024 season.</p>
 <p><span class="math display">\[G_t = \sum_{t} \mu_{pt}\]</span></p>
 <p>Teams receive a value of how good they are (<em>G</em>) by taking the
 sum of the playing-time adjusted, standardized productivity measure
@@ -432,14 +433,10 @@ team <em>t</em>.</p>
 with which they play even more talented players. I do my best to adjust
 for this. To do so, I take the strength of schedule variable (SOS) for
 each team. See <a href="https://web.archive.org/web/20180531115621/https://www.pro-football-reference.com/blog/index4837.html?p=37">here</a>
-for a discription of how it is calculated. I standardize this measure
+for a description of how it is calculated. I standardize this measure
 for all teams such that it is measured in terms of standard deviations
 above the mean. Importantly higher values correspond to higher average
-quality of opponents. Alabama’s men’s team had the highest strength of
-schedule for the 2023-2024 season having played in the 4th most
-difficult conference and faced out-of-conference opponents of Morehead
-State, Indiana State, Ohio State, Oregon, Clemson, Purdue, Creighton,
-and Arizona.</p>
+quality of opponents.</p>
 </div>
 <div id="overall-measure" class="section level2">
 <h2>Overall Measure</h2>
@@ -449,14 +446,18 @@ good they are (<em>G</em>) with their strength of schedule
 (<em>SOS</em>). In the future, I will find a way to weight these. For
 now, they receive equal weighting.</p>
 </div>
+<div id="code" class="section level2">
+<h2>Code</h2>
+<p>You can find the code for the webscraping and data analysis <a href="https://github.com/joshmartinecon/march-madness-forecast/blob/main/march%20madness.R">here</a>.
+As is, it will estimate the head-to-head match-ups for the women’s
+bracket. To estimate the men’s bracket, just replace “women” with “men”
+in the code.</p>
+</div>
 </div>
 <div id="quality-of-predictions" class="section level1">
 <h1>Quality of Predictions</h1>
-<p>I will periodically update the quality of my predictions. As of April
-3, 2024 my women’s bracket is doing quite well (84th pecentile) while my
-once excellent men’s bracket has since collapsed into flames (50th
-percentile) in the Sweet 16 with the loss of my predicted champion: the
-University of Houston.</p>
+<p>I will periodically update the quality of my predictions. Below you
+can see how I did in 2024.</p>
 <table>
 <thead>
 <tr class="header">
@@ -493,27 +494,24 @@ University of Houston.</p>
 </tr>
 <tr class="odd">
 <td align="center">Final Four</td>
+<td align="center">1 of 2 (50%)</td>
 <td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
+<td align="center">1 of 2 (50%)</td>
 </tr>
 <tr class="even">
 <td align="center">Championship</td>
+<td align="center">0 of 1 (0%)</td>
 <td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
+<td align="center">1 of 1 (100%)</td>
 </tr>
 <tr class="odd">
-<td align="center">Champion</td>
+<td align="center">Nat. Pctl.</td>
+<td align="center">58 pctl.</td>
 <td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
+<td align="center">83 pctl.</td>
 </tr>
 </tbody>
 </table>
-<p>Historically the women’s bracket has always been easier to predict,
-but this is by far the worst my men’s bracket has preformed. Looks like
-I will have to revisit the chalk board this time next year.</p>
 </div>
 
 

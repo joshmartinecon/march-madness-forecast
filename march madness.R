@@ -4,20 +4,20 @@ rm(list = ls())
 library(rvest)
 
 ### Read in Schedle
-x <- read_html("https://www.sports-reference.com/cbb/postseason/men/2024-ncaa.html")
+x <- read_html("https://www.sports-reference.com/cbb/postseason/women/2025-ncaa.html")
 
 ### Extract Links for Each School
 x %>%
   html_nodes("a") %>%
   html_attr("href") -> linkz
 linkz[grepl("school", linkz)] -> linkz
-linkz[grepl("/men/2024.html", linkz)] -> linkz
+linkz[grepl("/women/2025.html", linkz)] -> linkz
 linkz <- linkz[5:68]
 
 ### Loop: Grab Advanced Statistics for each School
 y <- list()
 for(i in 1:length(linkz)){
-  if(linkz[i] == "/cbb/schools//men/2024.html"){
+  if(linkz[i] == "/cbb/schools//women/2025.html"){
     x <- data.frame(
       team = "Play-In",
       av = NA
@@ -29,14 +29,18 @@ for(i in 1:length(linkz)){
     
     x <- read_html(paste0("https://www.sports-reference.com/", linkz[i]))
     x %>%
-      html_nodes("#advanced") %>%
+      html_nodes(xpath = '//comment()') %>%    # select comment nodes
+      html_text() %>%    # extract comment text
+      paste(collapse = '') %>%    # collapse to a single string
+      read_html() %>%    # reparse to HTML
+      html_node('#players_advanced') %>%
       html_table() %>%
       as.data.frame() -> x
 
     x$minz <- x$MP / max(x$G) / (sum(x$MP/max(x$G)) / 40/5)
     x$team = linkz[i]
     gsub("/cbb/schools/", "", x$team) -> x$team
-    gsub("/men/2024.html", "", x$team) -> x$team
+    gsub("/women/2025.html", "", x$team) -> x$team
     
     y[[length(y)+1]] <- x
     cat(i, "out of", length(linkz), "\r")
@@ -44,28 +48,28 @@ for(i in 1:length(linkz)){
   }
 }
 
-### If this will remove observations for play-in
+### This will remove observations for play-in
 z <- list()
 for(i in 1:length(linkz)){
   z[[length(z)+1]] <- dim(y[[i]])
 }
 z <- as.data.frame(do.call(rbind, z))
-# y <- y[-c(as.numeric(row.names(z[z$V1 == 1,])))]
+y <- y[-c(as.numeric(row.names(z[z$V1 == 1,])))]
 y <- as.data.frame(do.call(rbind, y))
 
 ### Productivity Statistics
 y$PERz <- y$PER*y$minz
-y$WS.40z <- y$WS.40*y$minz
+y$WS.40z <- y$`WS/40`*y$minz
 y$BPMz <- y$BPM*y$minz
-for(i in 31:33){
+for(i in 30:32){
   y[,i][is.na(y[,i])] <- mean(y[,i], na.rm = TRUE)
   y[,i] <- (y[,i] - mean(y[,i])) / sd(y[,i])
 }
-y$av <- apply(y[,31:33], 1, sum)/3
+y$av <- apply(y[,30:32], 1, sum)/3
 z <- aggregate(y$av, list(y$team), sum)
 
 ### Pull Strength of Schedule Data
-read_html("https://www.sports-reference.com/cbb/seasons/men/2024-school-stats.html") -> x
+read_html("https://www.sports-reference.com/cbb/seasons/women/2025-school-stats.html") -> x
 
 ### Clean Strength of Schedule
 x %>%
@@ -82,10 +86,10 @@ x %>%
   html_nodes("a") %>%
   html_attr("href") -> x2
 x2[grepl("school", x2)] -> x2
-x2[grepl("/men/2024.html", x2)] -> x2
+x2[grepl("/women/2025.html", x2)] -> x2
 x1$link = x2[3:length(x2)]
 gsub("/cbb/schools/", "", x1$link) -> x1$link
-gsub("/men/2024.html", "", x1$link) -> x1$link
+gsub("/women/2025.html", "", x1$link) -> x1$link
 
 ### Standardize this measure
 x1$SRS <- as.numeric(x1$SRS)
@@ -101,7 +105,7 @@ z$av <- z$x + z$sos
 
 ### Loop Prep
 gsub("/cbb/schools/", "", linkz) -> linkz
-gsub("/men/2024.html", "", linkz) -> linkz
+gsub("/women/2025.html", "", linkz) -> linkz
 x <- data.frame(
   team = linkz
 )

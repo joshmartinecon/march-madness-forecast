@@ -16,7 +16,7 @@ The equation above represents the share of minutes (*SMP*) player *p* on team *t
 
 $$W_t = \dfrac{\sum_t \big(SMP_{pt} \big) \times 5}{40}$$
 
-However, because players will inevitably miss some time due to injury, the sum of the share of minutes played will very likely overstate the overall number of minutes which are possible to play within a game.Thus, I create a weighting variable (*W*) for each team *t* to help better estimate actual playing time. To do so, I aggregate each team's share of minutes played (*SMP*) and multiply by the maximum number of players which can be on the court at a time (5). I then divide this by the total minutes that can be played per player (40). The closer this number is to 1, the less adjustments to playing time the team has made throughout the season.
+However, because players will inevitably miss some time due to injury, the sum of the share of minutes played will very likely overstate the overall number of minutes which are possible to play within a game. Thus, I create a weighting variable (*W*) for each team *t* to help better estimate actual playing time. To do so, I aggregate each team's share of minutes played (*SMP*) and multiply by the maximum number of players which can be on the court at a time (5). I then divide this by the total minutes that can be played per player (40). The closer this number is to 1, the less adjustments to playing time the team has made throughout the season.
 
 $$EMP_{pt} = \dfrac{SMP_{pt}}{W_t}$$
 
@@ -44,8 +44,7 @@ Teams receive a value of how good they are (*G*) by taking the sum of the playin
 
 ## Strength of Schedule
 
-Sometimes really good players can look average due to the frequency with which they play even more talented players. I do my best to adjust for this. To do so, I take the strength of schedule variable (SOS) for each team. See [here](https://web.archive.org/web/20180531115621/https://www.pro-football-reference.com/blog/index4837.html?p=37) for a discription of how it is calculated. I standardize this measure for all teams such that it is measured in terms of standard deviations above the mean. Importantly higher values correspond to higher average quality of opponents. Alabama's men's team had the highest strength of schedule for the 2023-2024 season having played in the 4th most difficult conference and faced out-of-conference opponents of Morehead State, Indiana State, Ohio State, Oregon, Clemson, Purdue, Creighton, and Arizona.
-
+Sometimes really good players can look average due to the frequency with which they play even more talented players. I do my best to adjust for this. To do so, I take the strength of schedule variable (SOS) for each team. See [here](https://web.archive.org/web/20180531115621/https://www.pro-football-reference.com/blog/index4837.html?p=37) for a description of how it is calculated. I standardize this measure for all teams such that it is measured in terms of standard deviations above the mean. Importantly higher values correspond to higher average quality of opponents.
 
 ## Overall Measure
 
@@ -53,9 +52,13 @@ $$Q_t = G_t + SOS_t$$
 
 The overall measure of a team's quality (*Q*) simply adds how good they are (*G*) with their strength of schedule (*SOS*). In the future, I will find a way to weight these. For now, they receive equal weighting.
 
+## Code
+
+You can find the code for the webscraping and data analysis [here](https://github.com/joshmartinecon/march-madness-forecast/blob/main/march%20madness.R). As is, it will estimate the head-to-head match-ups for the women's bracket. To estimate the men's bracket, just replace "women" with "men" in the code.
+
 # Quality of Predictions
 
-I will periodically update the quality of my predictions. As of April 3, 2024 my women's bracket is doing quite well (84th pecentile) while my once excellent men's bracket has since collapsed into flames (50th percentile) in the Sweet 16 with the loss of my predicted champion: the University of Houston.
+I will periodically update the quality of my predictions. Below you can see how I did in 2024.
 
 |              |       Men      |   |      Women     |
 |:------------:|:--------------:|:-:|:--------------:|
@@ -66,5 +69,3 @@ I will periodically update the quality of my predictions. As of April 3, 2024 my
 |  Final Four  |  1 of 2 (50%)  |   |  1 of 2 (50%)  |
 | Championship |  0 of 1  (0%)  |   |  1 of 1 (100%) |
 |  Nat. Pctl.  |    58 pctl.    |   |    83 pctl.    |
-
-Historically the women's bracket has always been easier to predict, but this is by far the worst my men's bracket has preformed with a complete collapse in the Sweet 16. Looks like I will have to revisit the chalk board this time next year.
