@@ -56,26 +56,34 @@ The overall measure of a team's quality (*Q*) simply adds how good they are (*G*
 
 You can find the code for the webscraping and data analysis [here](https://github.com/joshmartinecon/march-madness-forecast/blob/main/march%20madness.R). As is, it will estimate the head-to-head match-ups for the women's bracket. To estimate the men's bracket, just replace "women" with "men" in the code.
 
-# Quality of Predictions
+# Overview of Results
 
-I will periodically update the accuracy of picks as the tournament progresses.
+## 2025 Results
 
-## 2025 Men's Bracket
+[Men's Bracket 2025 PDF](brackets/men's%20bracket%202025.pdf); [Women's Bracket 2025 PDF](brackets/women's%20bracket%202025.pdf)
 
-[View the Men's Bracket 2025 PDF](brackets/men's%20bracket%202025.pdf)
+My women's bracket went great. Nearly had the Kansas St. > USC result correct. I also incorrectly had Notre Dame advancing to the Final Four. No other major upsets.
 
-## 2025 Women's Bracket
+I had a rough start in the round of 32 in my men's bracket, but rebounded (hah) by the Sweet 16. I lost a lot betting against the eventual champion Florida Gators early who I had them losing to UCONN (who I had losing to Texas Tech in the Elite Eight.)
 
-[View the Women's Bracket 2025 PDF](brackets/women's%20bracket%202025.pdf)
+|              |       Men      |   |      Women     |
+|:------------:|:--------------:|:-:|:--------------:|
+|  Round of 64 | 27 of 32 (84%) |   | 26 of 32 (81%) |
+|  Round of 32 |  8 of 16 (50%) |   | 12 of 16 (75%) |
+|   Sweet 16   |  7 of 8  (88%) |   |  6 of 8  (75%) |
+|    Elite 8   |  3 of 4  (75%) |   |  3 of 4  (75%) |
+|  Final Four  |  1 of 2  (50%) |   |  2 of 2 (100%) |
+| Championship |  0 of 1  (0%)  |   |  1 of 1 (100%) |
+|  Nat. Pctl.  |    73 pctl.    |   |    94 pctl.    |
 
-## 2024 Overview
+## 2024 Results
 
 |              |       Men      |   |      Women     |
 |:------------:|:--------------:|:-:|:--------------:|
 |  Round of 64 | 22 of 32 (69%) |   | 28 of 32 (88%) |
 |  Round of 32 | 12 of 16 (75%) |   | 13 of 16 (81%) |
-|   Sweet 16   |  1 of 8 (13%)  |   |  4 of 8 (50%)  |
-|    Elite 8   |  1 of 4 (25%)  |   |  3 of 4 (75%)  |
-|  Final Four  |  1 of 2 (50%)  |   |  1 of 2 (50%)  |
+|   Sweet 16   |  1 of 8  (13%) |   |  4 of 8  (50%) |
+|    Elite 8   |  1 of 4  (25%) |   |  3 of 4  (75%) |
+|  Final Four  |  1 of 2  (50%) |   |  1 of 2  (50%) |
 | Championship |  0 of 1  (0%)  |   |  1 of 1 (100%) |
 |  Nat. Pctl.  |    58 pctl.    |   |    83 pctl.    |
